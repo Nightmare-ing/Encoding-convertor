@@ -40,10 +40,10 @@ if __name__ == '__main__':
         for file in files:
             file_path = os.path.join(dirpath, file)
             encoding, confidence = check_file_encoding(file_path)
-            if encoding == 'UTF-8':
+            if encoding == 'utf-8':
                 print(f"File {file_path} is already UTF-8, skip...")
                 continue
-            if encoding != 'UTF-8' and confidence > 0.8:
+            if encoding != 'utf-8' and confidence > 0.8:
                 with open(file_path, 'r', encoding=encoding) as file:
                     raw_data = file.read()
                 with open(file_path, 'w', encoding='UTF-8') as file:
