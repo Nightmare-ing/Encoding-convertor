@@ -39,6 +39,11 @@ if __name__ == '__main__':
     for dirpath, dirs, files in os.walk(args.root_dir):
         for file in files:
             file_path = os.path.join(dirpath, file)
+            # judge the extension of the file
+            file_extension = os.path.splitext(file_path)[1]
+            if file_extension not in ['.v', '.txt', '.csv', '.py']:
+                print(f"File {file_path} is not a text file, skip...")
+                continue
             encoding, confidence = check_file_encoding(file_path)
             if encoding == 'utf-8':
                 print(f"File {file_path} is already UTF-8, skip...")
