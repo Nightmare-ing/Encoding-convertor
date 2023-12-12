@@ -41,7 +41,7 @@ if __name__ == '__main__':
             file_path = os.path.join(dirpath, file)
             # judge the extension of the file
             file_extension = os.path.splitext(file_path)[1]
-            if file_extension not in ['.v', '.txt', '.csv', '.py']:
+            if file_extension not in ['.v', '.txt', '.csv', '.py', '.xdc']:
                 print(f"File {file_path} is not a text file, skip...")
                 continue
             encoding, confidence = check_file_encoding(file_path)
